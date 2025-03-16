@@ -43,7 +43,7 @@ Route::prefix('employees')->name('employees.')->group(function () {
 });
 
 // الحضور والانصراف
-Route::prefix('attendance')->name('attendance.')->group(function () {
+Route::prefix('attendance')->name('attendances.')->group(function () {
     Route::get('/', [AttendanceController::class, 'index'])->name('index');
     Route::get('/create', [AttendanceController::class, 'create'])->name('create');
     Route::post('/store', [AttendanceController::class, 'store'])->name('store');
