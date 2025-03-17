@@ -12,31 +12,25 @@
             </ul>
         </div>
     @endif
-
-    @if (session('success'))
-        <div class="bg-green-100 text-green-700 p-4 rounded mb-4">
-            {{ session('success') }}
-        </div>
-    @endif
     <form action="{{ route('shifts.store') }}" method="POST" class="bg-white p-6 rounded shadow-md">
         @csrf
         <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2">اسم الوردية:</label>
-            <input type="text" name="name" class="w-full p-2 border border-gray-300 rounded" required>
+            <input type="text" name="name" value="{{ old('name') }}" class="w-full p-2 border border-gray-300 rounded" required>
             @error('name')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
         <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2">وقت البداية:</label>
-            <input type="text" id="timePicker" name="start_time" class="w-full p-2 border border-gray-300 rounded" placeholder="00:00 AM/PM">
+            <input type="text" name="start_time" value="{{ old('start_time') }}" class="w-full p-2 border border-gray-300 rounded" placeholder="24:00:00">
             @error('start_time')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
         <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2">وقت النهاية:</label>
-            <input type="text" id="timePicker" name="end_time" class="w-full p-2 border border-gray-300 rounded" placeholder="00:00 AM/PM">
+            <input type="text" name="end_time" value="{{ old('end_time') }}" class="w-full p-2 border border-gray-300 rounded" placeholder="24:00:00">
             @error('end_time')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
