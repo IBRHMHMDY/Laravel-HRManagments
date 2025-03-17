@@ -12,7 +12,7 @@ class Employee extends Model
 
     protected $fillable = [
         'name', 'phone', 'email', 'address', 'birth_date', 'join_date',
-        'department_id', 'salary_type', 'fixed_salary', 'hourly_rate'
+        'department_id', 'shift_id', 'salary_type', 'fixed_salary', 'hourly_rate'
     ];
 
     public function department()
@@ -22,9 +22,12 @@ class Employee extends Model
 
     public function shiftAttendances()
     {
-        return $this->hasMany(ShiftAttendance::class);
+        return $this->hasMany(Attendance::class);
     }
-
+    public function shifts()
+    {
+        return $this->hasManyThrough(Shift::class, Attendance::class);
+    }
     public function adjustments()
     {
         return $this->hasMany(Adjustment::class);
@@ -37,7 +40,7 @@ class Employee extends Model
 
     public function approvedShifts()
     {
-        return $this->hasMany(ShiftAttendance::class, 'approved_by');
+        return $this->hasMany(Attendance::class, 'approved_by');
     }
 
 }

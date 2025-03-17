@@ -31,6 +31,16 @@ Route::prefix('departments')->name('departments.')->group(function () {
     Route::delete('/{department}', [DepartmentController::class, 'destroy'])->name('destroy');
 });
 
+// الورديات
+Route::prefix('shifts')->name('shifts.')->group(function () {
+    Route::get('/', [ShiftController::class, 'index'])->name('index');
+    Route::get('/create', [ShiftController::class, 'create'])->name('create');
+    Route::post('/store', [ShiftController::class, 'store'])->name('store');
+    Route::get('/{shift}/edit', [ShiftController::class, 'edit'])->name('edit');
+    Route::put('/{shift}', [ShiftController::class, 'update'])->name('update');
+    Route::delete('/{shift}', [ShiftController::class, 'destroy'])->name('destroy');
+});
+
 // الموظفون
 Route::prefix('employees')->name('employees.')->group(function () {
     Route::get('/', [EmployeeController::class, 'index'])->name('index');
@@ -50,16 +60,6 @@ Route::prefix('attendance')->name('attendances.')->group(function () {
     Route::get('/{attendance}/edit', [AttendanceController::class, 'edit'])->name('edit');
     Route::put('/{attendance}', [AttendanceController::class, 'update'])->name('update');
     Route::delete('/{attendance}', [AttendanceController::class, 'destroy'])->name('destroy');
-});
-
-// الورديات
-Route::prefix('shifts')->name('shifts.')->group(function () {
-    Route::get('/', [ShiftController::class, 'index'])->name('index');
-    Route::get('/create', [ShiftController::class, 'create'])->name('create');
-    Route::post('/store', [ShiftController::class, 'store'])->name('store');
-    Route::get('/{shift}/edit', [ShiftController::class, 'edit'])->name('edit');
-    Route::put('/{shift}', [ShiftController::class, 'update'])->name('update');
-    Route::delete('/{shift}', [ShiftController::class, 'destroy'])->name('destroy');
 });
 
 // التعديلات المالية

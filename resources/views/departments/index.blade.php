@@ -1,0 +1,47 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="max-w-6xl mx-auto bg-white p-6 shadow-lg rounded-lg">
+
+    <h2 class="text-2xl font-bold mb-4">إدارة الأقسام</h2>
+
+    <div class="flex justify-between">
+        <a href="{{ route('departments.create') }}" class="bg-green-500 text-white px-4 py-2 rounded mb-4 inline-block">
+            + إضافة قسم جديد
+        </a>
+
+        <form method="GET" action="{{ route('departments.index') }}" class="mb-4">
+            <input type="text" name="search" value="{{ request('search') }}" placeholder="ابحث عن قسم..."
+                class="border p-2 rounded">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">بحث</button>
+        </form>
+    </div>
+
+    <table class="w-full border-collapse border border-gray-300">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="border p-2">الاسم</th>
+                <th class="border p-2">الإجراءات</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($departments as $department)
+                <tr>
+                    <td class="border p-2">{{ $department->name }}</td>
+                    <td class="border p-2">
+                        <a href="{{ route('departments.edit', $department) }}" class="text-blue-500">تعديل</a>
+                        <form action="{{ route('departments.destroy', $department) }}" method="POST" class="inline">
+                            @csrf @method('DELETE')
+                            <button type="submit" class="text-red-500">حذف</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+    {{-- <div class="mt-4">
+        {{ $departments->links() }}
+    </div> --}}
+</div>
+@endsection

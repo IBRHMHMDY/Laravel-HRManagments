@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Shift;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ShiftController extends Controller
@@ -11,7 +13,8 @@ class ShiftController extends Controller
      */
     public function index()
     {
-        //
+        $shifts = Shift::all();
+        return view('shifts.index', compact('shifts'));
     }
 
     /**
@@ -19,7 +22,7 @@ class ShiftController extends Controller
      */
     public function create()
     {
-        //
+        return view('shifts.create');
     }
 
     /**
@@ -43,7 +46,7 @@ class ShiftController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('shifts.edit');
     }
 
     /**

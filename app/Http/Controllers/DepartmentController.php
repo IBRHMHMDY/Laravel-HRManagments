@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
@@ -11,7 +12,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        $departments = Department::all();
+        return View('departments.index', compact('departments'));
     }
 
     /**
@@ -19,7 +21,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('departments.create');
     }
 
     /**
@@ -43,7 +45,7 @@ class DepartmentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('departments.edit');
     }
 
     /**

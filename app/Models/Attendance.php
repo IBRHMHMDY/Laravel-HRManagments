@@ -12,7 +12,7 @@ class Attendance extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'employee_id', 'shift_name', 'start_time', 'end_time', 'hours',
+        'employee_id', 'shift_id', 'shift_name', 'start_time', 'end_time', 'hours',
         'date', 'check_in', 'check_out', 'status', 'leave_type', 'approved_by'
     ];
 
@@ -20,8 +20,13 @@ class Attendance extends Model
     {
         return $this->belongsTo(Employee::class);
     }
+
+    public function shift(){
+        return $this->belongsTo(Shift::class);
+    }
+
     // حساب عدد الساعات تلقائياً
-    public function getTotalHoursAttribute()
+    public function getTotalHours()
     {
         if (!$this->check_out) {
             return 0; // إذا لم يتم تسجيل وقت الخروج بعد
