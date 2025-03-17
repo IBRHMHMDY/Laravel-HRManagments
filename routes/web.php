@@ -29,6 +29,7 @@ Route::prefix('departments')->name('departments.')->group(function () {
     Route::get('/{department}/edit', [DepartmentController::class, 'edit'])->name('edit');
     Route::put('/{department}', [DepartmentController::class, 'update'])->name('update');
     Route::delete('/{department}', [DepartmentController::class, 'destroy'])->name('destroy');
+    Route::post('/{department}/restore', [DepartmentController::class, 'restore'])->name('restore');
 });
 
 // الورديات

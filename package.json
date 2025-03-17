@@ -2,6 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "build:css": "npx tailwindcss -i ./resources/css/app.css -o ./public/css/app.css --watch",
         "build": "vite build",
         "dev": "vite"
     },
