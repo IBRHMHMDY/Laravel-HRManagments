@@ -18,9 +18,7 @@ return new class extends Migration
             $table->decimal('amount', 10, 2);
             $table->text('reason')->nullable();
             $table->date('date');
-            $table->json('meta_data')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
 
     }

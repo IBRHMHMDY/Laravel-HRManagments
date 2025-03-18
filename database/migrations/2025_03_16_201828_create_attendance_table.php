@@ -11,21 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shift_attendance', function (Blueprint $table) {
+        Schema::create('attendance', function (Blueprint $table) {
             $table->id();
             $table->foreignId('employee_id')->constrained()->onDelete('cascade');
-            $table->string('shift_name', 50);
-            $table->time('start_time');
-            $table->time('end_time');
+            $table->unsignedInteger('shift_id')->nullable()->constrained('shifts')->onDelete();
             $table->decimal('hours', 4, 2);
             $table->date('date');
             $table->time('check_in')->nullable();
             $table->time('check_out')->nullable();
-            $table->enum('status', ['حاضر', 'غائب', 'إجازة']);
-            $table->enum('leave_type', ['مرضى', 'سنوي', 'طارئ', 'بدون راتب'])->nullable();
+            $table->enum('status', ['present', 'absent', 'on_leave']);
+            $table->enum('leave_type', ['sick', 'annual', 'emergency', 'unpaid'])->nullable();
             $table->foreignId('approved_by')->nullable()->constrained('employees')->onDelete('set null');
             $table->timestamps();
-            $table->softDeletes();
+
         });
 
     }
@@ -35,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shift_attendance');
+        Schema::dropIfExists('attendance');
     }
 };

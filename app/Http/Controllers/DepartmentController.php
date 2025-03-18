@@ -18,8 +18,7 @@ class DepartmentController extends Controller
             return $query->where('name', 'like', '%' . $search . '%');
         })->get();
 
-        $deletedDepartments = Department::onlyTrashed()->get();
-        return view('departments.index', compact('departments','deletedDepartments', 'search'));
+        return view('departments.index', compact('departments', 'search'));
     }
 
     /**
@@ -86,25 +85,7 @@ class DepartmentController extends Controller
     public function destroy(Department $department)
     {
         $department->delete();
-        // رسالة نجاح
         return redirect()->route('departments.index')->with('success', 'تم حذف القسم بنجاح!');
-
-    }
-
-    public function restore($id)
-    {
-        $department = Department::withTrashed()->find($id);
-
-        if (!$department) {
-            return redirect()->route('departments.index')->with('error', 'القسم غير موجود!');
-        }
-
-        if ($department->trashed()) {
-            $department->restore();
-            return redirect()->route('departments.index')->with('success', 'تم استعادة القسم بنجاح!');
-        }
-
-        return redirect()->route('departments.index')->with('error', 'القسم غير محذوف.');
     }
 
 }

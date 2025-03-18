@@ -19,7 +19,6 @@ return new class extends Migration
             $table->decimal('overtime_pay', 10, 2)->default(0);
             $table->decimal('total_salary', 10, 2);
             $table->timestamps();
-            $table->softDeletes();
         });
 
     }

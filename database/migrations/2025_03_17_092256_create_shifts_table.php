@@ -18,7 +18,6 @@ return new class extends Migration
             $table->time('end_time');
             $table->time('hours_works');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

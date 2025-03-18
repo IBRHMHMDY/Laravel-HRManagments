@@ -115,13 +115,5 @@ class ShiftController extends Controller
         $shift->delete();
         return redirect()->route('shifts.index')->with('Success','تم حذف الشيفت');
     }
-    public function restore(Shift $shift)
-    {
-        if($shift->trashed()){
-            $shift->restore();
-            return redirect()->route('shifts.index')->with('Success','تم حذف الشيفت');
-        }
-        return redirect()->route('shifts.index')->with('error', 'القسم غير محذوف.');
 
-    }
 }
