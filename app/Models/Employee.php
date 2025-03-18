@@ -15,18 +15,23 @@ class Employee extends Model
         'department_id', 'shift_id', 'salary_type', 'fixed_salary', 'hourly_rate'
     ];
 
+    protected $attributes = [
+        'fixed_salary' => 0,
+        'hourly_rate' => 0,
+    ];
+
     public function department()
     {
         return $this->belongsTo(Department::class);
     }
 
-    public function shiftAttendances()
+    public function Attendances()
     {
         return $this->hasMany(Attendance::class);
     }
-    public function shifts()
+    public function shift()
     {
-        return $this->hasManyThrough(Shift::class, Attendance::class);
+        return $this->belongsTo(Shift::class);
     }
     public function adjustments()
     {

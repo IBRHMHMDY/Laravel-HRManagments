@@ -20,31 +20,31 @@
                 <span class="material-icons">person</span> إدارة الموظفين
             </a>
         </li>
-        <li class="mb-4">
+        {{-- <li class="mb-4">
             <a href="{{ route('attendances.index') }}" class="flex items-center gap-2 hover:bg-gray-700 p-2 rounded">
                 <span class="material-icons">schedule</span> الحضور والانصراف
             </a>
-        </li>
-        <li class="mb-4">
+        </li> --}}
+        {{-- <li class="mb-4">
             <a href="{{ route('salaries.index') }}" class="flex items-center gap-2 hover:bg-gray-700 p-2 rounded">
                 <span class="material-icons">money</span> كشف المرتبات
             </a>
-        </li>
+        </li> --}}
         {{-- <li class="mb-4">
             <a href="{{ route('leaves.index') }}" class="flex items-center gap-2 hover:bg-gray-700 p-2 rounded">
                 <span class="material-icons">today</span> كشف الإجازات
             </a>
         </li> --}}
-        <li class="mb-4">
+        {{-- <li class="mb-4">
             <a href="{{ route('adjustments.index') }}" class="flex items-center gap-2 hover:bg-gray-700 p-2 rounded">
                 <span class="material-icons">money_off</span> كشف الخصومات
             </a>
-        </li>
-        <li class="mb-4">
+        </li> --}}
+        {{-- <li class="mb-4">
             <a href="{{ route('adjustments.index') }}" class="flex items-center gap-2 hover:bg-gray-700 p-2 rounded">
                 <span class="material-icons">money_off</span> كشف المكافآت
             </a>
-        </li>
+        </li> --}}
         {{-- <li class="mb-4">
             <a href="{{ route('users.index') }}" class="flex items-center gap-2 hover:bg-gray-700 p-2 rounded">
                 <span class="material-icons">people</span> إدارة المستخدمين

@@ -20,9 +20,9 @@ return new class extends Migration
             $table->date('birth_date');
             $table->date('join_date');
             $table->foreignId('department_id')->constrained()->onDelete('cascade');
-            $table->enum('salary_type', ['شهري', 'حسب الساعات']);
-            $table->decimal('fixed_salary', 10, 2)->default(0);
-            $table->decimal('hourly_rate', 10, 2)->default(0);
+            $table->enum('salary_type', ['fixed','hourly']);
+            $table->decimal('fixed_salary', 10, 2)->nullable();
+            $table->decimal('hourly_rate', 10, 2)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
