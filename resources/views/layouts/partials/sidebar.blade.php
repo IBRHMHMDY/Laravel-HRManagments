@@ -20,11 +20,11 @@
                 <span class="material-icons">person</span> إدارة الموظفين
             </a>
         </li>
-        {{-- <li class="mb-4">
+        <li class="mb-4">
             <a href="{{ route('attendances.index') }}" class="flex items-center gap-2 hover:bg-gray-700 p-2 rounded">
                 <span class="material-icons">schedule</span> الحضور والانصراف
             </a>
-        </li> --}}
+        </li>
         {{-- <li class="mb-4">
             <a href="{{ route('salaries.index') }}" class="flex items-center gap-2 hover:bg-gray-700 p-2 rounded">
                 <span class="material-icons">money</span> كشف المرتبات

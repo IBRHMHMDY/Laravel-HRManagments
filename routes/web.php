@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdjustmentController;
-use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\AttendancesController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
@@ -54,13 +54,15 @@ Route::prefix('employees')->name('employees.')->group(function () {
 });
 
 // الحضور والانصراف
-Route::prefix('attendance')->name('attendances.')->group(function () {
-    Route::get('/', [AttendanceController::class, 'index'])->name('index');
-    Route::get('/create', [AttendanceController::class, 'create'])->name('create');
-    Route::post('/store', [AttendanceController::class, 'store'])->name('store');
-    Route::get('/{attendance}/edit', [AttendanceController::class, 'edit'])->name('edit');
-    Route::put('/{attendance}', [AttendanceController::class, 'update'])->name('update');
-    Route::delete('/{attendance}', [AttendanceController::class, 'destroy'])->name('destroy');
+Route::prefix('attendances')->name('attendances.')->group(function () {
+    Route::get('/', [AttendancesController::class, 'index'])->name('index');
+    Route::get('/checkinPage', [AttendancesController::class, 'checkinPage'])->name('checkinPage');
+    Route::post('/checkin', [AttendancesController::class, 'checkin'])->name('checkin');
+    Route::get('/checkoutPage', [AttendancesController::class, 'checkoutPage'])->name('checkoutPage');
+    Route::post('/checkout', [AttendancesController::class, 'checkout'])->name('checkout');
+    Route::get('/{attendance}/edit', [AttendancesController::class, 'edit'])->name('edit');
+    Route::put('/{attendance}', [AttendancesController::class, 'update'])->name('update');
+    Route::delete('/{attendance}', [AttendancesController::class, 'destroy'])->name('destroy');
 });
 
 // التعديلات المالية

@@ -24,8 +24,8 @@
                 @foreach ($shifts as $shift)
                     <tr class="border-b">
                         <td class="p-2">{{ $shift->name }}</td>
-                        <td class="p-2">{{ \Carbon\Carbon::parse($shift->start_time)->format('h:i A') }}</td>
-                        <td class="p-2">{{ \Carbon\Carbon::parse($shift->end_time)->format('h:i A') }}</td>
+                        <td class="p-2">{{ \Carbon\Carbon::parse($shift->start_time)->format('H:i') }}</td>
+                        <td class="p-2">{{ \Carbon\Carbon::parse($shift->end_time)->format('H:i') }}</td>
                         <td class="p-2">{{ $shift->hours_works }}</td>
                         <td class="p-2">
                             <a href="{{ route('shifts.edit', $shift->id) }}" class="text-blue-500">تعديل</a>

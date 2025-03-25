@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Shift;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Type\Decimal;
 
 class ShiftController extends Controller
 {
@@ -56,14 +57,6 @@ class ShiftController extends Controller
         ]);
 
         return redirect()->route('shifts.index')->with('success', 'تم إضافة الشفت بنجاح!');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**

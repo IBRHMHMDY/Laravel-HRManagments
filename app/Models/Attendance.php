@@ -11,8 +11,9 @@ class Attendance extends Model
     use HasFactory;
 
     protected $fillable = [
-        'employee_id', 'shift_id', 'shift_name', 'start_time', 'end_time', 'hours',
-        'date', 'check_in', 'check_out', 'status', 'leave_type', 'approved_by'
+        'employee_id', 'shift_id', 'hours_works', 'date',
+        'check_in', 'late_minutes', 'check_out', 'status', 'type_late',
+        'overtime_minutes', 'early_leave_minutes', 'leave_type'
     ];
 
     public function employee()
@@ -24,18 +25,18 @@ class Attendance extends Model
         return $this->belongsTo(Shift::class);
     }
 
-    // حساب عدد الساعات تلقائياً
-    public function getTotalHours()
-    {
-        if (!$this->check_out) {
-            return 0; // إذا لم يتم تسجيل وقت الخروج بعد
-        }
+    // // حساب عدد الساعات تلقائياً
+    // public function getTotalHours()
+    // {
+    //     if (!$this->check_out) {
+    //         return 0; // إذا لم يتم تسجيل وقت الخروج بعد
+    //     }
 
-        $checkIn = Carbon::parse($this->check_in);
-        $checkOut = Carbon::parse($this->check_out);
+    //     $checkIn = Carbon::parse($this->check_in);
+    //     $checkOut = Carbon::parse($this->check_out);
 
-        return $checkIn->diffInHours($checkOut); // حساب الفرق بالساعات
-    }
+    //     return $checkIn->diffInHours($checkOut); // حساب الفرق بالساعات
+    // }
 
     public function approvedBy()
     {

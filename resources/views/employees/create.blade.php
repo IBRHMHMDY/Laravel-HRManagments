@@ -21,19 +21,19 @@
         <label class="block">الاسم:</label>
         <input type="text" name="name" class="w-full p-2 border rounded-md" required>
 
-        <label class="block mt-2">البريد الإلكتروني:</label>
-        <input type="email" name="email" class="w-full p-2 border rounded-md" required>
+        <label class="block mt-2">العنوان:</label>
+        <input type="text" name="address" class="w-full p-2 border rounded-md">
 
         <label class="block mt-2">رقم الهاتف:</label>
         <input type="text" name="phone" class="w-full p-2 border rounded-md" required>
 
-        <label class="block mt-2">العنوان:</label>
-        <input type="text" name="address" class="w-full p-2 border rounded-md">
+        <label class="block mt-2">البريد الإلكتروني:</label>
+        <input type="email" name="email" class="w-full p-2 border rounded-md" required>
 
         <label class="block mt-2">تاريخ الميلاد:</label>
         <input type="date" name="birth_date" class="w-full p-2 border rounded-md" required>
 
-        <label class="block mt-2">تاريخ الانضمام:</label>
+        <label class="block mt-2">تاريخ التعيين:</label>
         <input type="date" name="join_date" class="w-full p-2 border rounded-md" required>
 
         <label class="block mt-2">القسم:</label>
